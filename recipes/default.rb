@@ -26,6 +26,6 @@ windows_package node['seven_zip']['package_name'] do
 end
 
 # update path
-windows_path node['seven_zip']['home'] do
+windows_path "#{node['seven_zip']['home']}" do
   action :add
 end
