@@ -1,4 +1,4 @@
-name             "7-zip"
+name             "seven_zip"
 maintainer       "Opscode, Inc."
 maintainer_email "cookbooks@opscode.com"
 license          "Apache 2.0"
