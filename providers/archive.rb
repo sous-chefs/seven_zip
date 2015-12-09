@@ -32,7 +32,7 @@ action :extract do
   converge_by("Extract #{@new_resource.source} => #{@new_resource.path} (overwrite=#{@new_resource.overwrite})") do
     FileUtils.mkdir_p(@new_resource.path) unless Dir.exists?(@new_resource.path)
     local_source = cached_file(@new_resource.source, @new_resource.checksum)
-    cmd = "#{seven_zip_exe} x"
+    cmd = "\"#{seven_zip_exe}\" x"
     cmd << " -y" if @new_resource.overwrite
     cmd << " -o#{win_friendly_path(@new_resource.path)}"
     cmd << " #{local_source}"
