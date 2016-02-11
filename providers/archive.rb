@@ -30,10 +30,10 @@ end
 
 action :extract do
   converge_by("Extract #{@new_resource.source} => #{@new_resource.path} (overwrite=#{@new_resource.overwrite})") do
-    FileUtils.mkdir_p(@new_resource.path) unless Dir.exists?(@new_resource.path)
+    FileUtils.mkdir_p(@new_resource.path) unless Dir.exist?(@new_resource.path)
     local_source = cached_file(@new_resource.source, @new_resource.checksum)
     cmd = "\"#{seven_zip_exe}\" x"
-    cmd << " -y" if @new_resource.overwrite
+    cmd << ' -y' if @new_resource.overwrite
     cmd << " -o#{win_friendly_path(@new_resource.path)}"
     cmd << " #{local_source}"
     Chef::Log.debug(cmd)
@@ -41,8 +41,7 @@ action :extract do
   end
 end
 
-
-def seven_zip_exe()
+def seven_zip_exe
   Chef::Log.debug("seven zip home: #{node['seven_zip']['home']}")
   win_friendly_path(::File.join(node['seven_zip']['home'], '7z.exe'))
 end
