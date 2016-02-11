@@ -13,4 +13,4 @@ platforms:
 suites:
   - name: default
     run_list:
-      - recipe[seven_zip]
+      - recipe[test_archive]
