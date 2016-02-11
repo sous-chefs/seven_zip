@@ -23,8 +23,8 @@ Requirements
 
 Attributes
 ----------
-- `node['seven_zip']['home']` - location to install 7-zip files to.  default is `%SYSTEMDRIVE%\7-zip`
-
+- (optional) `node['seven_zip']['home']` - specify location for 7-zip installation.
+- (optional) `node['seven_zip']['syspath']` - if true, adds 7-zip directory to system path.
 
 Resource/Provider
 -----------------
@@ -57,8 +57,7 @@ end
 Usage
 -----
 ### default
-Downloads and installs 7-zip to the location specified by `node['seven_zip']['home']`.  Also ensures `node['seven_zip']['home']` is in the system path.
-
+Downloads and installs 7-zip.
 
 License & Authors
 -----------------
