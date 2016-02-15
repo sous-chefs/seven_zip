@@ -19,7 +19,6 @@
 #
 
 require 'fileutils'
-require 'win32/registry'
 require 'chef/mixin/shell_out'
 
 include Chef::Mixin::ShellOut
@@ -47,6 +46,7 @@ def seven_zip_exe
            # If the installation home is specifically set, use it
            node['seven_zip']['home']
          else
+           require 'win32/registry'
            # Read path from recommended Windows App Paths registry location
            # docs: https://msdn.microsoft.com/en-us/library/windows/desktop/ee872121
            ::Win32::Registry::HKEY_LOCAL_MACHINE.open(
