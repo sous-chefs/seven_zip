@@ -10,7 +10,6 @@ Berksfile.lock
 version.txt
 
 # Bundler
-Gemfile.lock
 bin/*
 .bundle/*
 
