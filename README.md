@@ -15,7 +15,7 @@ Requirements
 - Windows Server 2012 (R1, R2)
 
 ### Chef
-- Chef 11+
+- Chef >= 11.6
 
 ### Cookbooks
 - windows
@@ -23,12 +23,12 @@ Requirements
 
 Attributes
 ----------
-- `node['seven_zip']['home']` - location to install 7-zip files to.  default is `%SYSTEMDRIVE%\7-zip`
-
+- (optional) `node['seven_zip']['home']` - specify location for 7-zip installation.
+- (optional) `node['seven_zip']['syspath']` - if true, adds 7-zip directory to system path.
 
 Resource/Provider
 -----------------
-### zeven_zip_archive
+### seven_zip_archive
 
 Extracts a 7-zip compatible archive (iso, zip, 7z etc) to the specified destination directory.
 
@@ -42,23 +42,21 @@ Extracts a 7-zip compatible archive (iso, zip, 7z etc) to the specified destinat
 - `checksum` - The archive file checksum.
 
 #### Examples
-Extract VisualStudio ISO files to c:/vs2015tmp
+Extract 7-zip source files to `C:\seven_zip_source`.
 
 ```ruby
-seven_zip_archive 'extract_vs2015_iso' do
-  path 'c:/vs2015tmp'
-  source 'http://example.com/vs2015.iso'
+seven_zip_archive 'seven_zip_source' do
+  path      'C:\seven_zip_source'
+  source    'http://www.7-zip.org/a/7z1514-src.7z'
   overwrite true
-  checksum '44db74d1e6243924c187069ad95cee58b687dcb9ba2d302fc6ae889fb4ae7694'
+  checksum  '3713aed72728eae8f6649e4803eba0b3676785200c76df6269034c520df4bbd5'
 end
 ```
-
 
 Usage
 -----
 ### default
-Downloads and installs 7-zip to the location specified by `node['seven_zip']['home']`.  Also ensures `node['seven_zip']['home']` is in the system path.
-
+Downloads and installs 7-zip.
 
 License & Authors
 -----------------

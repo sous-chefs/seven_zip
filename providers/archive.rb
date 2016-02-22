@@ -42,6 +42,17 @@ action :extract do
 end
 
 def seven_zip_exe
-  Chef::Log.debug("seven zip home: #{node['seven_zip']['home']}")
-  win_friendly_path(::File.join(node['seven_zip']['home'], '7z.exe'))
+  path = if node['seven_zip']['home']
+           # If the installation home is specifically set, use it
+           node['seven_zip']['home']
+         else
+           require 'win32/registry'
+           # Read path from recommended Windows App Paths registry location
+           # docs: https://msdn.microsoft.com/en-us/library/windows/desktop/ee872121
+           ::Win32::Registry::HKEY_LOCAL_MACHINE.open(
+             'SOFTWARE\Microsoft\Windows\CurrentVersion\App Paths\7zFM.exe',
+             ::Win32::Registry::KEY_READ).read_s('Path')
+         end
+  Chef::Log.debug("Using 7-zip home: #{path}")
+  win_friendly_path(::File.join(path, '7z.exe'))
 end
