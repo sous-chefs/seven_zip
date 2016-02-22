@@ -1,5 +1,5 @@
 #
-# Author:: Shawn Neal (<sneal@daptiv.com>)
+# Author:: Shawn Neal (<sneal@sneal.net>)
 # Cookbook Name:: seven_zip
 # Resource:: archive
 #
