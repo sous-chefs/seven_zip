@@ -7,7 +7,7 @@ require 'rspec/core/rake_task'
 task default: [:version, :rubocop, :foodcritic, :spec]
 
 task :version do
-  version = ENV['BUILD_NUMBER'] ? "1.0.#{ENV['BUILD_NUMBER']}" : '1.0.0'
+  version = ENV['BUILD_NUMBER'] ? "2.0.#{ENV['BUILD_NUMBER']}" : '2.0.0'
   IO.write('version.txt', version)
 end
 
