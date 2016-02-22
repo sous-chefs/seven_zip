@@ -1,3 +1,6 @@
+[![Cookbook Version](http://img.shields.io/cookbook/v/seven_zip.svg)](https://supermarket.chef.io/cookbooks/seven_zip)
+[![Build Status](https://secure.travis-ci.org/daptiv/seven_zip.png)](http://travis-ci.org/daptiv/seven_zip)
+
 seven_zip Cookbook
 ==============
 [7-Zip](http://www.7-zip.org/) is a file archiver with a high compression ratio. This cookbook installs the full 7-zip suite of tools (GUI and CLI). This cookbook replaces the older [7-zip cookbook](https://github.com/sneal/7-zip).
