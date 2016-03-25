@@ -36,8 +36,8 @@ action :extract do
     local_source = cached_file(@new_resource.source, @new_resource.checksum)
     cmd = "\"#{seven_zip_exe}\" x"
     cmd << ' -y' if @new_resource.overwrite
-    cmd << " -o#{win_friendly_path(@new_resource.path)}"
-    cmd << " #{local_source}"
+    cmd << " -o\"#{win_friendly_path(@new_resource.path)}\""
+    cmd << " \"#{local_source}\""
     Chef::Log.debug(cmd)
     shell_out!(cmd)
   end
