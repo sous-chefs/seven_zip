@@ -18,7 +18,7 @@
 # limitations under the License.
 #
 
-if kernel['machine'] =~ /x86_64/
+if node['kernel']['machine'] == 'x86_64'
   default['seven_zip']['url']          = 'http://www.7-zip.org/a/7z1514-x64.msi'
   default['seven_zip']['checksum']     = 'cefe1a9092d8a6be68468c33910d6206b40e934fb63cab686c5cccf369fbf712'
   default['seven_zip']['package_name'] = '7-Zip 15.14 (x64 edition)'
