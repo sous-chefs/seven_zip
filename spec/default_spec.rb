@@ -13,8 +13,8 @@ describe 'seven_zip::default' do
   context 'with syspath' do
     let(:chef_run) do
       ChefSpec::ServerRunner.new do |node|
-        node.set['seven_zip']['syspath'] = true
-        node.set['seven_zip']['home'] = 'C:\\\\7-zip'
+        node.override['seven_zip']['syspath'] = true
+        node.override['seven_zip']['home'] = 'C:\\\\7-zip'
       end.converge(described_recipe)
     end
     it 'installs seven_zip package' do
