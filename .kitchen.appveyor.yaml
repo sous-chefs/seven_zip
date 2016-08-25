@@ -1,10 +1,11 @@
 ---
 driver:
-  name: vagrant
-  provider: virtualbox
-  gui: true
-  username: vagrant
-  password: vagrant
+  name: proxy
+  host: localhost
+  reset_command: "exit 0"
+  port: 5985
+  username: <%= ENV["winrm_user"] %>
+  password: <%= ENV["winrm_pass"] %>
 
 provisioner:
   name: chef_zero
