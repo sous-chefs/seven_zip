@@ -39,7 +39,7 @@ action :extract do
     cmd << " -o\"#{win_friendly_path(@new_resource.path)}\""
     cmd << " \"#{local_source}\""
     Chef::Log.debug(cmd)
-    shell_out!(cmd)
+    shell_out!(cmd, timeout: extract_timeout)
   end
 end
 
@@ -61,4 +61,8 @@ def seven_zip_exe_from_registry
     'SOFTWARE\Microsoft\Windows\CurrentVersion\App Paths\7zFM.exe',
     ::Win32::Registry::KEY_READ
   ).read_s('Path')
+end
+
+def extract_timeout
+  @new_resource.timeout || node['seven_zip']['default_extract_timeout']
 end

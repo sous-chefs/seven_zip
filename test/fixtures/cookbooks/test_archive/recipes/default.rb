@@ -6,6 +6,7 @@ seven_zip_archive 'test_archive' do
   source    node['test_archive']['source']
   overwrite node['test_archive']['overwrite']
   checksum  node['test_archive']['checksum']
+  timeout   30
 end
 
 seven_zip_archive 'extract_with_spaces' do
