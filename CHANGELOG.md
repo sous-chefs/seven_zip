@@ -2,6 +2,10 @@ seven_zip Cookbook CHANGELOG
 ========================
 This file is used to list changes made in each version of the seven_zip cookbook.
 
+v2.0.2
+------
+- Add timeout to extract action on seven\_zip resource and configurable default\_extract_timeout attribute.
+
 v2.0.1
 ------
 - [GH Issue 21 - NoMethodError: Undefined method or attribute `kernel' on `node'](https://github.com/daptiv/seven_zip/issues/21).
