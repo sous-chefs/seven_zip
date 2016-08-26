@@ -1,5 +1,5 @@
 [![Cookbook Version](http://img.shields.io/cookbook/v/seven_zip.svg)](https://supermarket.chef.io/cookbooks/seven_zip)
-[![Build Status](https://secure.travis-ci.org/daptiv/seven_zip.svg?branch=master)](http://travis-ci.org/daptiv/seven_zip)
+[![Build status](https://ci.appveyor.com/api/projects/status/y1lsnlkd2b3q6gfd/branch/master?svg=true)](https://ci.appveyor.com/project/ChefWindowsCookbooks65871/seven-zip/branch/master)
 
 seven_zip Cookbook
 ==============
