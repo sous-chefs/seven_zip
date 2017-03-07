@@ -52,6 +52,11 @@ Guardfile
 Procfile
 .kitchen*
 .rubocop.yml
+spec/*
+Rakefile
+.travis.yml
+.foodcritic
+.codeclimate.yml
 
 # SCM #
 #######
@@ -78,6 +83,7 @@ tmp
 CONTRIBUTING*
 CHANGELOG*
 TESTING*
+MAINTAINERS.toml
 
 # Strainer #
 ############
@@ -90,7 +96,3 @@ Strainerfile
 ###########
 .vagrant
 Vagrantfile
-
-# Travis #
-##########
-.travis.yml
