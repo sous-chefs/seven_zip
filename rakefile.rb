@@ -1,4 +1,5 @@
 require 'rubocop/rake_task'
+require 'cookstyle'
 require 'foodcritic'
 require 'rspec/core/rake_task'
 require 'stove/rake_task'
@@ -8,7 +9,7 @@ task default: [:rubocop, :foodcritic, :spec]
 FoodCritic::Rake::LintTask.new do |t|
   t.options = {
     cookbook_paths: '.',
-    search_gems: true
+    search_gems: true,
   }
 end
 

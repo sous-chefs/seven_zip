@@ -1,9 +1,9 @@
 #
 # Author:: Seth Chisamore (<schisamo@chef.io>)
-# Cookbook Name:: seven_zip
+# Cookbook:: seven_zip
 # Recipe:: default
 #
-# Copyright 2011-2016, Chef Software, Inc.
+# Copyright:: 2011-2017, Chef Software, Inc.
 #
 # Licensed under the Apache License, Version 2.0 (the "License");
 # you may not use this file except in compliance with the License.
@@ -18,7 +18,7 @@
 # limitations under the License.
 #
 
-windows_package node['seven_zip']['package_name'] do
+package node['seven_zip']['package_name'] do
   source node['seven_zip']['url']
   checksum node['seven_zip']['checksum']
   options "INSTALLDIR=\"#{node['seven_zip']['home']}\"" if node['seven_zip']['home']
