@@ -4,8 +4,8 @@ driver:
   host: localhost
   reset_command: "exit 0"
   port: 5985
-  username: <%= ENV["winrm_user"] %>
-  password: <%= ENV["winrm_pass"] %>
+  username: <%= ENV["machine_user"] %>
+  password: <%= ENV["machine_pass"] %>
 
 provisioner:
   name: chef_zero
@@ -16,6 +16,6 @@ platforms:
       box: mwrock/Windows2012R2
 
 suites:
-  - name: tasks
+  - name: default
     run_list:
       - recipe[test_archive]
