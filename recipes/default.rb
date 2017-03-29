@@ -18,7 +18,7 @@
 # limitations under the License.
 #
 
-windows_package node['seven_zip']['package_name'] do
+package node['seven_zip']['package_name'] do
   source node['seven_zip']['url']
   checksum node['seven_zip']['checksum']
   options "INSTALLDIR=\"#{node['seven_zip']['home']}\"" if node['seven_zip']['home']
