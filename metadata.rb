@@ -9,4 +9,4 @@ description      'Installs/Configures the 7-zip file archiver'
 long_description IO.read(File.join(File.dirname(__FILE__), 'README.md'))
 version          '2.0.2'
 supports         'windows'
-depends          'windows', '< 3.0'
+depends          'windows', '>= 3.0.4'
