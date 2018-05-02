@@ -6,6 +6,9 @@ driver:
   port: 5985
   username: <%= ENV["machine_user"] %>
   password: <%= ENV["machine_pass"] %>
+  elevated: false
+  elevated_username: <%= ENV["machine_user"] %>
+  elevated_password: <%= ENV["machine_pass"] %>
 
 provisioner:
   name: chef_zero
