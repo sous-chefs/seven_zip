@@ -5,6 +5,9 @@ driver:
   gui: true
   username: vagrant
   password: vagrant
+  elevated: false
+  elevated_username: vagrant
+  elevated_password: vagrant
 
 provisioner:
   name: chef_zero
