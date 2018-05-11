@@ -19,12 +19,12 @@
 #
 
 if node['kernel']['machine'] == 'x86_64'
-  default['seven_zip']['url']          = 'https://www.7-zip.org/a/7z1805-x64.exe'
-  default['seven_zip']['checksum']     = 'c1e42d8b76a86ea1890ad080e69a04c75a5f2c0484bdcd838dc8fa908dd4a84c'
+  default['seven_zip']['url']          = 'https://www.7-zip.org/a/7z1805-x64.msi'
+  default['seven_zip']['checksum']     = '898c1ca0015183fe2ba7d55cacf0a1dea35e873bf3f8090f362a6288c6ef08d7'
   default['seven_zip']['package_name'] = '7-Zip 18.05 (x64 edition)'
 else
   default['seven_zip']['url']          = 'https://www.7-zip.org/a/7z1805.msi'
-  default['seven_zip']['checksum']     = '647a9a621162cd7a5008934a08e23ff7c1135d6f1261689fd954aa17d50f9729'
+  default['seven_zip']['checksum']     = 'c554238bee18a03d736525e06d9258c9ecf7f64ead7c6b0d1eb04db2c0de30d0'
   default['seven_zip']['package_name'] = '7-Zip 18.05'
 end
 
