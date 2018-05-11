@@ -2,7 +2,7 @@
 [![Build status](https://ci.appveyor.com/api/projects/status/y1lsnlkd2b3q6gfd/branch/master?svg=true)](https://ci.appveyor.com/project/ChefWindowsCookbooks65871/seven-zip/branch/master)
 
 # seven_zip Cookbook
-[7-Zip](http://www.7-zip.org/) is a file archiver with a high compression ratio. This cookbook installs the full 7-zip suite of tools (GUI and CLI). This cookbook replaces the older [7-zip cookbook](https://github.com/sneal/7-zip).
+[7-Zip](http://www.7-zip.org/) is a file archiver with a high compression ratio. This cookbook installs the full 7-Zip suite of tools (GUI and CLI). This cookbook replaces the older [7-Zip cookbook](https://github.com/sneal/7-zip).
 
 # Requirements
 ## Platforms
@@ -16,51 +16,31 @@
 - Windows Server 2012 (R1, R2)
 
 ## Chef
-- Chef >= 11.6
+- Chef >= 13.0
 
 ## Cookbooks
 - windows
 
 # Attributes
 ## Optional
-<table>
-  <tr>
-    <th>Key</th>
-    <th>Type</th>
-    <th>Description</th>
-    <th>Default</th>
-  </tr>
-  <tr>
-    <td><code>['seven_zip']['home']</code></td>
-    <td>String</td>
-    <td>7-Zip installation directory.</td>
-    <td></td>
-  </tr>
-  <tr>
-    <td><code>['seven_zip']['syspath']</code></td>
-    <td>Boolean</td>
-    <td>If true, adds 7-zip directory to system PATH environment variable.</td>
-    <td></td>
-  </tr>
-  <tr>
-    <td><code>['seven_zip']['default_extract_timeout']</code></td>
-    <td>Integer</td>
-    <td>The default timeout for an extract operation in seconds. This can be overridden by a resource attribute.</td>
-    <td>600</td>
-  </tr>
-</table>
+
+| Key | Type | Description | Default |
+|-----|------|-------------|---------|
+| `['seven_zip']['home']` | String | 7-Zip installation directory. | |
+| `['seven_zip']['syspath']` | Boolean | If true, adds 7-Zip directory to system PATH environment variable. | |
+| `['seven_zip']['default_extract_timeout']` | Integer | The default timeout for an extract operation in seconds. This can be overridden by a resource attribute. | `600` |
 
 # Usage
 ## default
 
-Add `seven_zip::default` to your run\_list which will download and install 7-zip for the current Windows platform. 
+Add `seven_zip::default` to your run\_list which will download and install 7-Zip for the current Windows platform.
 
 # Resource/Provider
 ## seven_zip_archive
-Extracts a 7-zip compatible archive (iso, zip, 7z etc) to the specified destination directory.
+Extracts a 7-Zip compatible archive (iso, zip, 7z, etc.) to the specified destination directory.
 
 #### Actions
-- `:extract` - Extract a 7-zip compatible archive
+- `:extract` - Extract a 7-Zip compatible archive.
 
 #### Attribute Parameters
 - `path` - Name attribute. The destination to extract to.
@@ -70,14 +50,14 @@ Extracts a 7-zip compatible archive (iso, zip, 7z etc) to the specified destinat
 - `timeout` - The extract action timeout in seconds, defaults to `node['seven_zip']['default_extract_timeout']`.
 
 #### Examples
-Extract 7-zip source files to `C:\seven_zip_source`.
+Extract 7-Zip source files to `C:\seven_zip_source`.
 
 ```ruby
 seven_zip_archive 'seven_zip_source' do
   path      'C:\seven_zip_source'
-  source    'http://www.7-zip.org/a/7z1514-src.7z'
+  source    'https://www.7-zip.org/a/7z1805-src.7z'
   overwrite true
-  checksum  '3713aed72728eae8f6649e4803eba0b3676785200c76df6269034c520df4bbd5'
+  checksum  'd9acfcbbdcad078435586e00f73909358ed8d714d106e064dcba52fa73e75d83'
   timeout   30
 end
 ```
@@ -85,7 +65,7 @@ end
 # Recipes
 ## default
 
-Installs 7-zip and adds it to your system PATH.
+Installs 7-Zip and adds it to your system PATH.
 
 # License & Authors
 - Author:: Seth Chisamore (<schisamo@chef.io>)
