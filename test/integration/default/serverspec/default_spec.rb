@@ -1,6 +1,6 @@
 require 'spec_helper'
 
-describe package('7-zip 15.14 (x64 edition)') do
+describe package('7-zip 18.05 (x64 edition)') do
   it 'is installed' do
     expect(subject).to be_installed
   end

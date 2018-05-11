@@ -19,13 +19,13 @@
 #
 
 if node['kernel']['machine'] == 'x86_64'
-  default['seven_zip']['url']          = 'http://www.7-zip.org/a/7z1514-x64.msi'
-  default['seven_zip']['checksum']     = 'cefe1a9092d8a6be68468c33910d6206b40e934fb63cab686c5cccf369fbf712'
-  default['seven_zip']['package_name'] = '7-Zip 15.14 (x64 edition)'
+  default['seven_zip']['url']          = 'https://www.7-zip.org/a/7z1805-x64.exe'
+  default['seven_zip']['checksum']     = 'c1e42d8b76a86ea1890ad080e69a04c75a5f2c0484bdcd838dc8fa908dd4a84c'
+  default['seven_zip']['package_name'] = '7-Zip 18.05 (x64 edition)'
 else
-  default['seven_zip']['url']          = 'http://www.7-zip.org/a/7z1514.msi'
-  default['seven_zip']['checksum']     = 'eaf58e29941d8ca95045946949d75d9b5455fac167df979a7f8e4a6bf2d39680'
-  default['seven_zip']['package_name'] = '7-Zip 15.14'
+  default['seven_zip']['url']          = 'https://www.7-zip.org/a/7z1805.msi'
+  default['seven_zip']['checksum']     = '647a9a621162cd7a5008934a08e23ff7c1135d6f1261689fd954aa17d50f9729'
+  default['seven_zip']['package_name'] = '7-Zip 18.05'
 end
 
 default['seven_zip']['default_extract_timeout'] = 600
