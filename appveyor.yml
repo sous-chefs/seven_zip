@@ -6,7 +6,7 @@ platform: x64
 environment:
   machine_user: vagrant
   machine_pass: vagrant
-  KITCHEN_YAML: .kitchen.appveyor.yml
+  KITCHEN_LOCAL_YAML: .kitchen.appveyor.yml
 
 branches:
   only:
