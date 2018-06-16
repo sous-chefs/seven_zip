@@ -18,12 +18,49 @@
 # limitations under the License.
 #
 
-default_action :extract
+property :path, String, name_attribute: true
+property :source, String
+property :overwrite, [true, false], default: false
+property :checksum, String
+property :timeout, Integer, default: lazy { node['seven_zip']['default_extract_timeout'] }
 
-actions :extract
+action :extract do
+  converge_by("Extract #{new_resource.source} => #{new_resource.path} (overwrite=#{new_resource.overwrite})") do
+    FileUtils.mkdir_p(new_resource.path) unless Dir.exist?(new_resource.path)
+    local_source = cached_file(new_resource.source, new_resource.checksum)
+    overwrite_file = new_resource.overwrite ? ' -y' : ' -aos'
+    cmd = "\"#{seven_zip_exe}\" x"
+    cmd << overwrite_file
+    cmd << " -o\"#{win_friendly_path(new_resource.path)}\""
+    cmd << " \"#{local_source}\""
+    Chef::Log.debug(cmd)
+    shell_out!(cmd, timeout: new_resource.timeout)
+  end
+end
 
-attribute :path, kind_of: String, name_attribute: true
-attribute :source, kind_of: String
-attribute :overwrite, kind_of: [TrueClass, FalseClass], default: false
-attribute :checksum, kind_of: String
-attribute :timeout, kind_of: Integer
+action_class do
+  require 'fileutils'
+  require 'chef/mixin/shell_out'
+  include Chef::Mixin::ShellOut
+  include Windows::Helper
+  
+  def seven_zip_exe
+    path = if node['seven_zip']['home']
+             node['seven_zip']['home']
+           else
+             seven_zip_exe_from_registry
+           end
+    Chef::Log.debug("Using 7-zip home: #{path}")
+    win_friendly_path(::File.join(path, '7z.exe'))
+  end
+
+  def seven_zip_exe_from_registry
+    require 'win32/registry'
+    # Read path from recommended Windows App Paths registry location
+    # docs: https://msdn.microsoft.com/en-us/library/windows/desktop/ee872121
+    ::Win32::Registry::HKEY_LOCAL_MACHINE.open(
+      'SOFTWARE\Microsoft\Windows\CurrentVersion\App Paths\7zFM.exe',
+      ::Win32::Registry::KEY_READ
+    ).read_s('Path')
+  end
+end

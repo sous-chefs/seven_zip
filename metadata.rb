@@ -9,4 +9,5 @@ description      'Installs/Configures 7-Zip'
 long_description IO.read(File.join(File.dirname(__FILE__), 'README.md'))
 version          '3.0.0'
 supports         'windows'
-depends          'windows'
+
+depends 'windows'
