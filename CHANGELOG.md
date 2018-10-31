@@ -2,6 +2,12 @@
 
 This file is used to list changes made in each version of seven_zip.
 
+## 3.1.0
+
+* Having a simple resource to setup 7-zip allows other resources (since including a recipe inside a resource is not a good pattern) to use it to ensure that their prerequisites are installed before-hand.
+* This resource leverage existing attributes as default values to keep backward compatibility.
+* The seven_zip::default recipe's code has been refactored to just use this resource.
+
 ## 3.0.0
 
 * Support Chef 13, drop support for Chef 12.
