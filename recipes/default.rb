@@ -18,24 +18,7 @@
 # limitations under the License.
 #
 
-windows_package node['seven_zip']['package_name'] do
-  source node['seven_zip']['url']
-  checksum node['seven_zip']['checksum']
-  options "INSTALLDIR=\"#{node['seven_zip']['home']}\"" if node['seven_zip']['home']
-  action :install
+# Install 7z and optionally add it to path
+seven_zip_tool 'install seven_zip' do
+  action [:install, :add_to_path] if node['seven_zip']['syspath']
 end
-
-# update path
-windows_path 'seven_zip' do
-  path lazy {
-    if node['seven_zip']['home']
-      node['seven_zip']['home']
-    else
-      ::Win32::Registry::HKEY_LOCAL_MACHINE.open(
-        'SOFTWARE\Microsoft\Windows\CurrentVersion\App Paths\7zFM.exe',
-        ::Win32::Registry::KEY_READ
-      ).read_s('Path')
-    end
-  }
-  action :add
-end if node['seven_zip']['syspath']
