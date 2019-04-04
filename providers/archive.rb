@@ -44,11 +44,7 @@ action :extract do
 end
 
 def seven_zip_exe
-  path = if node['seven_zip']['home']
-           node['seven_zip']['home']
-         else
-           seven_zip_exe_from_registry
-         end
+  path = node['seven_zip']['home'] || seven_zip_exe_from_registry
   Chef::Log.debug("Using 7-zip home: #{path}")
   Chef::Util::PathHelper.cleanpath(::File.join(path, '7z.exe'))
 end
