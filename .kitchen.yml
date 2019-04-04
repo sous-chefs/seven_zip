@@ -12,9 +12,13 @@ driver:
 
 provisioner:
   name: chef_zero
+  product_name: chef
+  product_version: 13.8.5
 
 platforms:
   - name: windows-2012R2
+    transport:
+      name: winrm
     driver:
       box: mwrock/Windows2012R2
 

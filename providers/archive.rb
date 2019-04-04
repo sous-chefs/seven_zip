@@ -20,6 +20,7 @@
 
 require 'fileutils'
 require 'chef/mixin/shell_out'
+require 'chef/util/path_helper'
 
 include Chef::Mixin::ShellOut
 include Windows::Helper
@@ -35,7 +36,7 @@ action :extract do
     overwrite_file = @new_resource.overwrite ? ' -y' : ' -aos'
     cmd = "\"#{seven_zip_exe}\" x"
     cmd << overwrite_file
-    cmd << " -o\"#{win_friendly_path(@new_resource.path)}\""
+    cmd << " -o\"#{Chef::Util::PathHelper.cleanpath(@new_resource.path)}\""
     cmd << " \"#{local_source}\""
     Chef::Log.debug(cmd)
     shell_out!(cmd, timeout: extract_timeout)
@@ -49,7 +50,7 @@ def seven_zip_exe
            seven_zip_exe_from_registry
          end
   Chef::Log.debug("Using 7-zip home: #{path}")
-  win_friendly_path(::File.join(path, '7z.exe'))
+  Chef::Util::PathHelper.cleanpath(::File.join(path, '7z.exe'))
 end
 
 def seven_zip_exe_from_registry
