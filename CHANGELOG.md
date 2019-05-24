@@ -2,6 +2,9 @@
 
 This file is used to list changes made in each version of seven_zip.
 
+## 3.1.1
+* Fix deprecation warning regarding the use of win_friendly_path helper.
+
 ## 3.1.0
 
 * Having a simple resource to setup 7-zip allows other resources (since including a recipe inside a resource is not a good pattern) to use it to ensure that their prerequisites are installed before-hand.
