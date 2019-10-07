@@ -2,6 +2,9 @@
 
 This file is used to list changes made in each version of seven_zip.
 
+## 3.1.2
+* Update nokogiri from 1.8.2 to 1.8.5 (https://snyk.io/vuln/SNYK-RUBY-NOKOGIRI-72433)
+
 ## 3.1.1
 * Fix deprecation warning regarding the use of win_friendly_path helper.
 
