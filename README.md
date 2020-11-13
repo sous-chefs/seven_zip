@@ -16,7 +16,7 @@
 - Windows Server 2012 (R1, R2)
 
 ## Chef
-- Chef >= 13.0
+- Chef >= 14.0
 
 ## Cookbooks
 - windows

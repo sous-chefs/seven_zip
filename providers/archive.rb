@@ -23,7 +23,6 @@ require 'chef/mixin/shell_out'
 require 'chef/util/path_helper'
 
 include Chef::Mixin::ShellOut
-include Windows::Helper
 
 def whyrun_supported?
   true
