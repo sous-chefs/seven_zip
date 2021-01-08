@@ -4,10 +4,7 @@ This file is used to list changes made in each version of seven_zip.
 
 ## Unreleased
 
-- resolved cookstyle error: libraries/matchers.rb:20:1 refactor: `Chef/Modernize/DefinesChefSpecMatchers`
-- resolved cookstyle error: metadata.rb:6:1 refactor: `Chef/Modernize/RespondToInMetadata`
-- resolved cookstyle error: metadata.rb:9:1 refactor: `Chef/RedundantCode/LongDescriptionMetadata`
-- resolved cookstyle error: providers/archive.rb:28:1 refactor: `Chef/Modernize/WhyRunSupportedTrue`
+- Various Cookstyle fixes
 
 ## 3.1.2
 * Update nokogiri from 1.8.2 to 1.8.5 (https://snyk.io/vuln/SNYK-RUBY-NOKOGIRI-72433)
