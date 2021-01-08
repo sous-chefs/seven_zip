@@ -25,10 +25,6 @@ require 'chef/util/path_helper'
 include Chef::Mixin::ShellOut
 include Windows::Helper
 
-def whyrun_supported?
-  true
-end
-
 action :extract do
   converge_by("Extract #{@new_resource.source} => #{@new_resource.path} (overwrite=#{@new_resource.overwrite})") do
     FileUtils.mkdir_p(@new_resource.path) unless Dir.exist?(@new_resource.path)
