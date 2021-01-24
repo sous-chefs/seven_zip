@@ -1,0 +1,30 @@
+---
+driver:
+  name: vagrant
+  gui: false
+  customize:
+    memory: 4096
+
+provisioner:
+  name: chef_zero
+  product_name: chef
+  enforce_idempotency: true
+  multiple_converge: 2
+  deprecations_as_errors: true
+
+transport:
+  name: winrm
+  elevated: true
+
+verifier:
+  name: inspec
+
+platforms:
+  - name: windows-2019
+    driver_config:
+      box: tas50/windows_2019
+
+suites:
+  - name: default
+    run_list:
+      - recipe[test_archive]

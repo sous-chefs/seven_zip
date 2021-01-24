@@ -19,13 +19,13 @@
 #
 
 if node['kernel']['machine'] == 'x86_64'
-  default['seven_zip']['url']          = 'https://www.7-zip.org/a/7z1805-x64.msi'
-  default['seven_zip']['checksum']     = '898c1ca0015183fe2ba7d55cacf0a1dea35e873bf3f8090f362a6288c6ef08d7'
-  default['seven_zip']['package_name'] = '7-Zip 18.05 (x64 edition)'
+  default['seven_zip']['url']          = 'https://www.7-zip.org/a/7z1900-x64.msi'
+  default['seven_zip']['checksum']     = 'a7803233eedb6a4b59b3024ccf9292a6fffb94507dc998aa67c5b745d197a5dc'
+  default['seven_zip']['package_name'] = '7-Zip 19.00 (x64 edition)'
 else
-  default['seven_zip']['url']          = 'https://www.7-zip.org/a/7z1805.msi'
-  default['seven_zip']['checksum']     = 'c554238bee18a03d736525e06d9258c9ecf7f64ead7c6b0d1eb04db2c0de30d0'
-  default['seven_zip']['package_name'] = '7-Zip 18.05'
+  default['seven_zip']['url']          = 'https://www.7-zip.org/a/7z1900.msi'
+  default['seven_zip']['checksum']     = 'b49d55a52bc0eab14947c8982c413d9be141c337da1368a24aa0484cbb5e89cd'
+  default['seven_zip']['package_name'] = '7-Zip 19.00'
 end
 
 default['seven_zip']['default_extract_timeout'] = 600
