@@ -2,7 +2,7 @@
 
 This file is used to list changes made in each version of seven_zip.
 
-## Unreleased
+## 3.2.0 - *2021-01-24*
 
 - Sous Chefs Adoption
 - Standardise files with files in sous-chefs/repo-management
