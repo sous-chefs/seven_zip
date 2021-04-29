@@ -2,7 +2,7 @@
 
 This file is used to list changes made in each version of seven_zip.
 
-## Unreleased
+## 4.0.0 - *2021-04-29*
 
 - Increase the supported version of Chef to Chef 16
 
