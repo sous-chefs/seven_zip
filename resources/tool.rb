@@ -22,23 +22,17 @@ unified_mode true
 property :package,
         String,
         description: 'Name of the package to install.',
-        default: lazy {
-          node['kernel']['machine'] == 'x86_64' ? '7-Zip 19.00 (x64 edition)' : '7-Zip 19.00'
-        }
+        default: node['kernel']['machine'] == 'x86_64' ? '7-Zip 19.00 (x64 edition)' : '7-Zip 19.00'
 
 property :source,
         String,
         description: 'Source URL of the package to install.',
-        default: lazy {
-          node['kernel']['machine'] == 'x86_64' ? 'https://www.7-zip.org/a/7z1900-x64.msi' : 'https://www.7-zip.org/a/7z1900.msi'
-        }
+        default: node['kernel']['machine'] == 'x86_64' ? 'https://www.7-zip.org/a/7z1900-x64.msi' : 'https://www.7-zip.org/a/7z1900.msi'
 
 property :checksum,
         String,
         description: 'Checksum for the downloaded pacakge.',
-        default: lazy {
-          node['kernel']['machine'] == 'x86_64' ? 'a7803233eedb6a4b59b3024ccf9292a6fffb94507dc998aa67c5b745d197a5dc' : 'b49d55a52bc0eab14947c8982c413d9be141c337da1368a24aa0484cbb5e89cd'
-        }
+        default: node['kernel']['machine'] == 'x86_64' ? 'a7803233eedb6a4b59b3024ccf9292a6fffb94507dc998aa67c5b745d197a5dc' : 'b49d55a52bc0eab14947c8982c413d9be141c337da1368a24aa0484cbb5e89cd'
 
 property :path,
         String,
