@@ -4,6 +4,23 @@ This file is used to list changes made in each version of seven_zip.
 
 ## Unreleased
 
+- Increase the supported version of Chef to Chef 16
+
+  This is inline with our support policies, allowing us to use the newest Chef features
+
+- Remove dependency on the deprecated Windows cookbook
+- Convert to modern custom resources
+- Remove the default recipe
+- Remove default_spec as we no longer have a default recipe
+- Use the Chef `execute` and `directory` resources rather than Ruby methods
+- Pull Windows helpers from the Windows cookbook and fix them to work in this cookbook
+
+  As the Windows cookbook is no longer maintained many of the methods we used were depreacted
+  in Ruby 2.7 but were never fixed. These methods have now been removed in Ruby 3.0
+
+- Move resource documentation to the documentation/resource directory.
+- Update README to refelect new usage
+
 ## 3.2.0 - *2021-01-24*
 
 - Sous Chefs Adoption
