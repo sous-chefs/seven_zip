@@ -4,6 +4,8 @@ This file is used to list changes made in each version of seven_zip.
 
 ## Unreleased
 
+- Reduce Chef requirement to >= 15.3
+
 ## 4.0.0 - *2021-04-29*
 
 - Increase the supported version of Chef to Chef 16
@@ -17,11 +19,11 @@ This file is used to list changes made in each version of seven_zip.
 - Use the Chef `execute` and `directory` resources rather than Ruby methods
 - Pull Windows helpers from the Windows cookbook and fix them to work in this cookbook
 
-  As the Windows cookbook is no longer maintained many of the methods we used were depreacted
+  As the Windows cookbook is no longer maintained many of the methods we used were deprecated
   in Ruby 2.7 but were never fixed. These methods have now been removed in Ruby 3.0
 
 - Move resource documentation to the documentation/resource directory.
-- Update README to refelect new usage
+- Update README to reflect new usage
 
 ## 3.2.0 - *2021-01-24*
 
