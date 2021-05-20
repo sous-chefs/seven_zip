@@ -2,7 +2,7 @@
 
 This file is used to list changes made in each version of seven_zip.
 
-## Unreleased
+## 4.1.0 - *2021-05-20*
 
 - Reduce Chef requirement to >= 15.3
 
