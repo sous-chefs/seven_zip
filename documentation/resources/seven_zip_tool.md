@@ -7,6 +7,8 @@ Download and install 7-zip for the current Windows platform.
 ## Actions
 
 - `:install`
+- `add_to_path`
+- `remove`
 
 ## Properties
 
