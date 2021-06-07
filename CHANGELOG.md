@@ -4,7 +4,11 @@ This file is used to list changes made in each version of seven_zip.
 
 ## Unreleased
 
+- Add remove action to seven_zip_tool
+
 ## 4.1.1 - *2021-06-01*
+
+- Update delivery configuration
 
 ## 4.1.0 - *2021-05-20*
 

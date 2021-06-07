@@ -27,4 +27,7 @@ platforms:
 suites:
   - name: default
     run_list:
-      - recipe[test_archive]
+      - recipe[test::default]
+  - name: remove
+    run_list:
+      - recipe[test::remove]
