@@ -2,6 +2,8 @@
 
 This file is used to list changes made in each version of seven_zip.
 
+## Unreleased
+
 ## 4.2.0 - *2021-06-07*
 
 - Add remove action to seven_zip_tool
