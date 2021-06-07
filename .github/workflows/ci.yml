@@ -4,8 +4,7 @@ name: ci
 "on":
   pull_request:
   push:
-    branches:
-      - master
+    branches: [master, main]
 
 jobs:
   delivery:
@@ -40,16 +39,17 @@ jobs:
     strategy:
       matrix:
         os:
-          - 'windows-latest'
+          - "windows-latest"
         suite:
-          - 'default'
+          - "default"
       fail-fast: false
-
     steps:
       - name: Check out code
         uses: actions/checkout@v2
       - name: Install Chef
         uses: actionshub/chef-install@main
+        env:
+          ACTIONS_ALLOW_UNSECURE_COMMANDS: true
       - name: test-kitchen
         uses: actionshub/test-kitchen@main
         env:
