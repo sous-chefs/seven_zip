@@ -4,6 +4,8 @@ This file is used to list changes made in each version of seven_zip.
 
 ## Unreleased
 
+- Standardise files with files in sous-chefs/repo-management
+
 ## 4.2.1 - *2021-06-07*
 
 - [CI] Change ActionsHub actions to main
