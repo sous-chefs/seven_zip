@@ -11,7 +11,7 @@ seven_zip_archive 'test_archive' do # rubocop:disable Chef/Modernize/SevenZipArc
   path      'C:\seven_zip_source'
   source    source
   checksum  checksum
-  overwrite true
+  overwrite false
   timeout   30
 end
 
@@ -19,5 +19,5 @@ seven_zip_archive 'extract_with_spaces' do # rubocop:disable Chef/Modernize/Seve
   path      'C:\Program Files\seven_zip_source'
   source    source
   checksum  checksum
-  overwrite true
+  overwrite false
 end
