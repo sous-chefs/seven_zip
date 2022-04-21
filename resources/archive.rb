@@ -40,13 +40,11 @@ action :extract do
   execute "extracting #{new_resource.source}" do
     command cmd
     timeout new_resource.timeout
+    not_if { file.exist(new_resource.path) }
   end
 end
 
 action_class do
-  # require 'chef/mixin/shell_out'
-  # include Chef::Mixin::ShellOut
-
   def seven_zip_exe
     path = seven_zip_exe_from_registry
     Chef::Log.debug("Using 7-zip home: #{path}")
@@ -55,6 +53,7 @@ action_class do
 
   def seven_zip_exe_from_registry
     require 'win32/registry'
+
     # Read path from recommended Windows App Paths registry location
     # docs: https://msdn.microsoft.com/en-us/library/windows/desktop/ee872121
     ::Win32::Registry::HKEY_LOCAL_MACHINE.open(
