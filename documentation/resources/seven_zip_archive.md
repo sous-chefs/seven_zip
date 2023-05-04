@@ -1,6 +1,6 @@
-[back to resource list](https://github.com/sous-chefs/seven_zip#resources)
+# `seven_zip_archive`
 
-# seven_zip_archive
+[back to resource list](../../README.md#Resources)
 
 Extracts a 7-Zip compatible archive (iso, zip, 7z, etc.) to the specified destination directory.
 
@@ -13,10 +13,10 @@ Extracts a 7-Zip compatible archive (iso, zip, 7z, etc.) to the specified destin
 | Name      | Type          | Default | Description                                 |
 | --------- | ------------- | ------- | ------------------------------------------- |
 | path      | String        |         | Path to extract the archive.                |
-| soruce    | String        |         | Source archive location.                    |
+| source    | String        |         | Source archive location.                    |
 | overwrite | [true, false] | false   | Whether to overwrite the destination files. |
 | checksum  | String        |         | The checksum for the downloaded file.       |
-| timeout   | Integer       | 600     | Extracat timeout in seconds.                |
+| timeout   | Integer       | 600     | Extra timeout in seconds.                   |
 
 ## Example usage
 

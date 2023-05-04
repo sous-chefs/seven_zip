@@ -1,0 +1,3 @@
+provisioner:
+  product_name: cinc
+  chef_client_path: C:\cinc-project\cinc\bin\cinc-client.bat

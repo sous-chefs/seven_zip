@@ -1,6 +1,6 @@
-[back to resource list](https://github.com/sous-chefs/seven_zip#resources)
+# `seven_zip_tool`
 
-# seven_zip_tool
+[back to resource list](../../README.md#Resources)
 
 Download and install 7-zip for the current Windows platform.
 
@@ -18,7 +18,7 @@ Download and install 7-zip for the current Windows platform.
 |          |        |                          |                                       |
 | package  | String | See resource for default | Name of the package to install        |
 | source   | String | See resource for default | Source URL of the package to install. |
-| checksum | String | See resource for default | Checksum for the downloaded pacakge.  |
+| checksum | String | See resource for default | Checksum for the downloaded package.  |
 | path     | String |                          | Optional: path to install 7zip to     |
 
 ## Example usage

@@ -4,13 +4,25 @@ This file is used to list changes made in each version of seven_zip.
 
 ## Unreleased
 
+- Fix CI
+- Update actions/stale action to v8
+- Update sous-chefs/.github action to v2
+
 ## 4.2.6 - *2023-02-15*
+
+- Update actions/stale action to v7
 
 ## 4.2.5 - *2023-02-14*
 
+- Update actions/checkout action to v3
+
 ## 4.2.4 - *2023-02-14*
 
+- Add renovate.json
+
 ## 4.2.3 - *2023-02-14*
+
+- Remove Delivery
 
 ## 4.2.2 - *2021-08-31*
 
@@ -88,22 +100,22 @@ This file is used to list changes made in each version of seven_zip.
 
 ## 2.0.1
 
-- [GH Issue 21 - NoMethodError: Undefined method or attribute kernel on node](https://github.com/daptiv/seven_zip/issues/21).
+- [GH Issue 21 - NoMethodError: Undefined method or attribute kernel on node](https://github.com/sous-chefs/seven_zip/issues/21).
 
 ## 2.0.0
 
-- [Upgrade to 7-Zip 15.14](https://github.com/daptiv/seven_zip/pull/9).
-- [7-Zip now installed to the default MSI location by default](https://github.com/daptiv/seven_zip/pull/11).
-- [7z.exe is located using the Windows registry unless the home attribute is explicitly set](https://github.com/daptiv/seven_zip/pull/10).
-- [7-Zip is only added to the Windows PATH if the syspath attribute is set](https://github.com/daptiv/seven_zip/pull/11).
-- [Installation idempotence check was fixed](https://github.com/daptiv/seven_zip/pull/14), package name was corrected.
-- [TravisCI build added](https://github.com/daptiv/seven_zip/pull/12).
-- [ServerSpec tests added](https://github.com/daptiv/seven_zip/pull/9)
-- [Document Archive LRWP](https://github.com/daptiv/seven_zip/pull/6)
+- [Upgrade to 7-Zip 15.14](https://github.com/sous-chefs/seven_zip/pull/9).
+- [7-Zip now installed to the default MSI location by default](https://github.com/sous-chefs/seven_zip/pull/11).
+- [7z.exe is located using the Windows registry unless the home attribute is explicitly set](https://github.com/sous-chefs/seven_zip/pull/10).
+- [7-Zip is only added to the Windows PATH if the syspath attribute is set](https://github.com/sous-chefs/seven_zip/pull/11).
+- [Installation idempotence check was fixed](https://github.com/sous-chefs/seven_zip/pull/14), package name was corrected.
+- [TravisCI build added](https://github.com/sous-chefs/seven_zip/pull/12).
+- [ServerSpec tests added](https://github.com/sous-chefs/seven_zip/pull/9)
+- [Document Archive LRWP](https://github.com/sous-chefs/seven_zip/pull/6)
 
 ## 1.0.2
 
-- [COOK-3476 - Upgrade to 7-zip 9.22](https://tickets.opscode.com/browse/COOK-3476)
+- COOK-3476 - Upgrade to 7-zip 9.22
 
 ## 1.0.0
 
