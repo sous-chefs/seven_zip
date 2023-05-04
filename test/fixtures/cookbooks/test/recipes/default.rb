@@ -1,7 +1,7 @@
 # This recipe is for testing the seven_zip archive provider
 
-source = 'https://www.7-zip.org/a/7z1805-src.7z'
-checksum = 'd9acfcbbdcad078435586e00f73909358ed8d714d106e064dcba52fa73e75d83'
+source = 'https://www.7-zip.org/a/7z2201-src.7z'
+checksum = '24cb2b9c6c0fb87d9c77a8d2afb572f5c75b45c950eff81a37ebac7fa73d1b4a'
 
 seven_zip_tool 'install seven_zip' do
   action [:install, :add_to_path]
