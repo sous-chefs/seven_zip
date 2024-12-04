@@ -2,6 +2,8 @@
 
 This file is used to list changes made in each version of seven_zip.
 
+## Unreleased
+
 ## 4.2.11 - *2024-12-04*
 
 ## 4.2.10 - *2024-05-06*
