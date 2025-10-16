@@ -2,6 +2,13 @@
 
 This file is used to list changes made in each version of seven_zip.
 
+## [4.2.13](https://github.com/sous-chefs/seven_zip/compare/4.2.12...v4.2.13) (2025-10-16)
+
+
+### Bug Fixes
+
+* **ci:** Update workflows to use release pipeline ([#68](https://github.com/sous-chefs/seven_zip/issues/68)) ([8e80134](https://github.com/sous-chefs/seven_zip/commit/8e8013493f31e2551fcdf7ba6a5784f3519af6fd))
+
 ## 4.2.7 - *2023-05-04*
 
 * Fix CI
