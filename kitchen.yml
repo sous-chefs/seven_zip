@@ -8,6 +8,7 @@ driver:
 provisioner:
   name: chef_zero
   product_name: chef
+  policyfile: Policyfile.rb
   # TODO: the execute resource needs to be fixed
   # enforce_idempotency: true
   # multiple_converge: 2
@@ -27,8 +28,8 @@ platforms:
 
 suites:
   - name: default
-    run_list:
-      - recipe[test::default]
+    provisioner:
+      named_run_list: default
   - name: remove
-    run_list:
-      - recipe[test::remove]
+    provisioner:
+      named_run_list: remove
