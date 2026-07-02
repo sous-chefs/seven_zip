@@ -5,7 +5,7 @@ transport: { name: exec }
 provisioner:
   product_name: cinc
   install_strategy: skip
-  chef_client_path: C:\cinc-project\cinc\bin\cinc-client.bat
+  chef_client_path: cinc-client.bat
 
 platforms:
   - name: windows-latest
