@@ -1,3 +1,4 @@
 provisioner:
   product_name: cinc
+  install_strategy: skip
   chef_client_path: C:\cinc-project\cinc\bin\cinc-client.bat

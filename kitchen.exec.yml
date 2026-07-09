@@ -2,6 +2,10 @@
 driver: { name: exec }
 transport: { name: exec }
 
+provisioner:
+  product_name: cinc
+  install_strategy: skip
+  chef_client_path: cinc-client.bat
+
 platforms:
-  - name: macos-latest
   - name: windows-latest

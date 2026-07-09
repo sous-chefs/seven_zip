@@ -1,6 +1,6 @@
 require 'rspec/expectations'
 require 'chefspec'
-require 'chefspec/berkshelf'
+require 'chefspec/policyfile'
 
 RSpec.configure do |config|
   config.run_all_when_everything_filtered = true
