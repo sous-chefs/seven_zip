@@ -87,6 +87,6 @@ action_class do
     URI.parse(source)
   rescue URI::InvalidURIError
     Chef::Log.warn("#{source} was an invalid URI. Trying to escape invalid characters")
-    URI.parse(URI.escape(source))
+    URI.parse(URI::DEFAULT_PARSER.escape(source))
   end
 end
