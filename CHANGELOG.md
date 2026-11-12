@@ -2,6 +2,27 @@
 
 This file is used to list changes made in each version of seven_zip.
 
+## [5.0.0](https://github.com/sous-chefs/seven_zip/compare/v4.2.13...v5.0.0) (2026-11-12)
+
+
+### ⚠ BREAKING CHANGES
+
+* migrate to native archive extraction ([#85](https://github.com/sous-chefs/seven_zip/issues/85))
+
+### Features
+
+* migrate to native archive extraction ([#85](https://github.com/sous-chefs/seven_zip/issues/85)) ([63cd80d](https://github.com/sous-chefs/seven_zip/commit/63cd80d832fd87004fbc692b0c07f910bc9c709c))
+* normalize scaffolding across all windowschefcookbooks repos ([d94246c](https://github.com/sous-chefs/seven_zip/commit/d94246cc097d8f8114e70cdd0ecdd907ffce87b8))
+
+
+### Bug Fixes
+
+* **ci:** Update workflows to use release pipeline ([#68](https://github.com/sous-chefs/seven_zip/issues/68)) ([8e80134](https://github.com/sous-chefs/seven_zip/commit/8e8013493f31e2551fcdf7ba6a5784f3519af6fd))
+* download links and sha checksums of installers ([f2fef15](https://github.com/sous-chefs/seven_zip/commit/f2fef158eb1310094cf8b7051edb1b6573aabf46))
+* migrate to Policyfile ([#78](https://github.com/sous-chefs/seven_zip/issues/78)) ([7bc4ff4](https://github.com/sous-chefs/seven_zip/commit/7bc4ff46e0b05b2ef9539793f4aae296b42dcd33))
+* output encoding 'handle is invalid' error in build script ([22c907c](https://github.com/sous-chefs/seven_zip/commit/22c907c3b8ddeeae9da772c8ea61aff37ecf2805))
+* output encoding 'handle is invalid' error in build script ([09ec48f](https://github.com/sous-chefs/seven_zip/commit/09ec48fcc504d067e27a4c5ca62ed70de177fee2))
+
 ## [4.2.13](https://github.com/sous-chefs/seven_zip/compare/4.2.12...v4.2.13) (2025-10-16)
 
 
