@@ -1,3 +1,6 @@
+# frozen_string_literal: true
+
+provides :seven_zip_tool
 unified_mode true
 
 property :package,
@@ -12,7 +15,7 @@ property :source,
 
 property :checksum,
         String,
-        description: 'Checksum for the downloaded pacakge.',
+        description: 'Checksum for the downloaded package.',
         default: node['kernel']['machine'] == 'x86_64' ? 'a7803233eedb6a4b59b3024ccf9292a6fffb94507dc998aa67c5b745d197a5dc' : 'b49d55a52bc0eab14947c8982c413d9be141c337da1368a24aa0484cbb5e89cd'
 
 property :path,
@@ -36,15 +39,22 @@ action :add_to_path do
 end
 
 action :remove do
+  installed_path = new_resource.path || registry_path
+  windows_path 'seven_zip' do
+    path installed_path
+    action :remove
+  end if installed_path
+
   windows_package new_resource.package do
     action :remove
   end
 end
 
 action_class do
-  REG_PATH = 'SOFTWARE\Microsoft\Windows\CurrentVersion\App Paths\7zFM.exe'.freeze
-
   def registry_path
-    ::Win32::Registry::HKEY_LOCAL_MACHINE.open(REG_PATH, ::Win32::Registry::KEY_READ).read_s('Path')
+    key = 'HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\App Paths\7zFM.exe'
+    return unless registry_key_exists?(key)
+
+    registry_get_values(key).find { |value| value[:name] == 'Path' }&.fetch(:data)
   end
 end

@@ -1,11 +1,15 @@
-require 'rspec/expectations'
+# frozen_string_literal: true
+
 require 'chefspec'
-require 'chefspec/policyfile'
+require 'tmpdir'
 
 RSpec.configure do |config|
-  config.run_all_when_everything_filtered = true
+  cookbook_path = Dir.mktmpdir('seven-zip-chefspec-')
+  File.symlink(File.expand_path('..', __dir__), File.join(cookbook_path, 'seven_zip'))
+  config.cookbook_path = cookbook_path
+  config.after(:suite) { FileUtils.remove_entry(cookbook_path) }
   config.platform = 'windows'
-  config.version = '2012R2'
+  config.version = '2019'
   ENV['ProgramFiles(x86)'] = 'C:\Program Files (x86)' # assume 64bit OS
   ENV['ProgramFiles'] = 'C:\Program Files'
   ENV['WINDIR'] = 'C:\Windows'

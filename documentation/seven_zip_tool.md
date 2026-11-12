@@ -1,21 +1,19 @@
 # `seven_zip_tool`
 
-[back to resource list](../../README.md#Resources)
+[back to resource list](../README.md#resources)
 
 Download and install 7-zip for the current Windows platform.
 
 ## Actions
 
 - `:install`
-- `add_to_path`
-- `remove`
+- `:add_to_path`
+- `:remove`: remove the selected PATH entry, then uninstall the MSI package.
 
 ## Properties
 
 | Name     | Type   | Default                  | Description                           |
 | -------- | ------ | ------------------------ | ------------------------------------- |
-| path     | String |                          | Path to extract the archive.          |
-|          |        |                          |                                       |
 | package  | String | See resource for default | Name of the package to install        |
 | source   | String | See resource for default | Source URL of the package to install. |
 | checksum | String | See resource for default | Checksum for the downloaded package.  |
@@ -23,14 +21,16 @@ Download and install 7-zip for the current Windows platform.
 
 ## Example usage
 
-Install 7-zip in `C:\7z` and add it to the path.
+Install the default 7-Zip package in `C:\7z` and add it to the path.
 
 ```ruby
-seven_zip_tool '7z 15.14 install' do
+seven_zip_tool 'install' do
   action    [:install, :add_to_path]
-  package   '7-Zip 15.14'
   path      'C:\7z'
-  source    'http://www.7-zip.org/a/7z1514.msi'
-  checksum  'eaf58e29941d8ca95045946949d75d9b5455fac167df979a7f8e4a6bf2d39680'
 end
 ```
+
+When removing a custom installation, pass the same `path`. Without a path,
+the installed application's registry entry supplies its installation directory.
+If that entry is already absent, package removal remains safe to repeat. Files
+in extraction destinations are retained.

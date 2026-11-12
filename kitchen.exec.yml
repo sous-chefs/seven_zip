@@ -5,6 +5,7 @@ transport: { name: exec }
 provisioner:
   product_name: cinc
   install_strategy: skip
+  chef_omnibus_install: false
   chef_client_path: cinc-client.bat
 
 platforms:
