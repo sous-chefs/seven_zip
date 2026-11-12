@@ -25,9 +25,9 @@ end
 ```
 
 This API change is deliberate: native `overwrite :auto` uses archive entry
-timestamps to decide whether extraction is needed. Native `:never` and
-`:always` have their own documented semantics; the former cookbook's boolean
-`overwrite` property is not a direct mapping. Review callers that depend on
+timestamps to decide whether extraction is needed. Native `overwrite false`
+and `overwrite true` have their own documented semantics; the former
+cookbook's boolean `overwrite` property is not a direct mapping. Review callers that depend on
 7-Zip's skip-existing-file behaviour or password and format handling. Native
 `archive_file` supports extraction, not arbitrary cleanup. Keep destination
 ownership with the caller and retain unrelated files.
