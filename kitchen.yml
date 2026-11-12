@@ -9,9 +9,9 @@ provisioner:
   name: chef_zero
   product_name: chef
   policyfile: Policyfile.rb
-  # TODO: the execute resource needs to be fixed
-  # enforce_idempotency: true
-  # multiple_converge: 2
+  named_run_list: <%= ENV.fetch('SEVEN_ZIP_RUN_LIST', 'default') %>
+  enforce_idempotency: true
+  multiple_converge: 2
   deprecations_as_errors: true
 
 transport:
@@ -20,6 +20,8 @@ transport:
 
 verifier:
   name: inspec
+  inspec_tests:
+    - test/integration/<%= ENV.fetch('SEVEN_ZIP_VERIFY_PROFILE', 'default') %>
 
 platforms:
   - name: windows-2019
@@ -28,8 +30,9 @@ platforms:
 
 suites:
   - name: default
-    provisioner:
-      named_run_list: default
   - name: remove
     provisioner:
       named_run_list: remove
+    verifier:
+      inspec_tests:
+        - test/integration/remove

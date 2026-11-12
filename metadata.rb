@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 name             'seven_zip'
 maintainer       'Sous Chefs'
 maintainer_email 'help@sous-chefs.org'

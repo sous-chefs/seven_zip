@@ -4,9 +4,9 @@
 
 The owner selected a full custom-resource migration and a replacement major
 release. Do not publish these changes as the existing 4.3.0 release PR.
-Preserve existing overwrite behaviour. Never recursively remove pre-existing
-destination contents. Changes to ownership or overwrite semantics need a
-separate owner decision.
+The owner subsequently chose Chef's native `archive_file` instead of retaining
+`seven_zip_archive`. Remove that wrapper and document the native overwrite
+semantics. Never recursively remove pre-existing destination contents.
 
 ## Vendor evidence
 
@@ -22,14 +22,13 @@ installer selection and real Windows evidence.
 
 ## Implementation findings
 
-The cookbook already has no public recipes or attributes. It exposes
-`seven_zip_tool` and `seven_zip_archive`. The latter requires the 7-Zip
-executable from the Windows registry and always executes extraction. The
-Kitchen configuration currently disables idempotency for that reason.
+The cookbook already has no public recipes or attributes. The full migration
+retains `seven_zip_tool` and removes `seven_zip_archive`. Extraction examples
+use native `remote_file` and `archive_file`, with default `overwrite :auto`.
+Two Windows convergences must prove idempotency; local ChefSpec does not.
 
-`URI.escape` was removed from current Ruby. `URI::DEFAULT_PARSER.escape`
-retains URI escaping rather than form-encoding the complete URL. Regression
-tests cover spaces and preservation of plus signs and existing escapes.
+The obsolete wrapper's URI helper is removed with the wrapper; URL fetching is
+delegated to Chef's native `remote_file`.
 
 Chef's built-in `archive_file` provides idempotent `overwrite :auto` using
 archive entry timestamps, but has no removal action. A receipt alone does
@@ -38,8 +37,13 @@ ownership assumptions merely to satisfy an idempotency or cleanup test.
 
 ## Acceptance still required
 
-Complete step-into resource tests, safe cleanup semantics, idempotent Windows
-Kitchen verification, current platform evidence, test cookbook layout and
-resource documentation before describing this migration as complete. Keep
-Windows acceptance on a Windows runner; local macOS unit tests do not prove
+Step-into tests exercise retained installation overrides and PATH actions.
+Removal deletes only the selected installation PATH entry and invokes the MSI
+uninstaller; no extraction directory is removed. Test cookbooks live under
+`test/cookbooks/test` and use a local Policyfile.
+
+The repository contains no dispatchable acceptance workflow on main. Add
+`workflow_dispatch` to the existing CI workflow on the feature branch and try
+dispatching it by ref before opening a PR. Windows acceptance must pass before
+describing this migration as complete. Local macOS unit tests do not prove
 installation or extraction on Windows.

@@ -27,14 +27,17 @@ This cookbook is maintained by the Sous Chefs. The Sous Chefs are a community of
 
 ## Chef
 
-- Chef >= 16.0
+- Chef >= 15.3
 
 ## Usage
 
 ## Resources
 
-- [seven_zip_tool](https://github.com/sous-chefs/seven_zip/blob/master/documentation/resources/seven_zip_tool.md)
-- [seven_zip_archive](https://github.com/sous-chefs/seven_zip/blob/master/documentation/resources/seven_zip_archive.md)
+- [seven_zip_tool](documentation/seven_zip_tool.md)
+
+Use Chef's native `archive_file` resource for extraction. See the
+[major release migration guide](migration.md) before replacing
+`seven_zip_archive` calls.
 
 ## Contributors
 

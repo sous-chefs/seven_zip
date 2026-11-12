@@ -2,6 +2,7 @@
 name: ci
 
 "on":
+  workflow_dispatch:
   pull_request:
   push:
     branches: [master, main]
@@ -37,7 +38,16 @@ jobs:
         uses: actions/checkout@v7
       - name: Install Chef
         uses: sous-chefs/.github/.github/actions/install-workstation@9.0.1
+      - name: Resolve local policy
+        run: chef install Policyfile.rb
+      - name: Install before removal acceptance
+        if: matrix.suite == 'remove'
+        env:
+          CHEF_LICENSE: accept-no-persist
+          KITCHEN_LOCAL_YAML: kitchen.exec.yml
+        run: kitchen converge default-windows-latest
       - name: test-kitchen
+        if: matrix.suite == 'default'
         uses: actionshub/test-kitchen@3.0.0
         env:
           CHEF_LICENSE: accept-no-persist
@@ -45,3 +55,18 @@ jobs:
         with:
           suite: ${{ matrix.suite }}
           os: ${{ matrix.os }}
+      - name: Remove twice and verify
+        if: matrix.suite == 'remove'
+        env:
+          CHEF_LICENSE: accept-no-persist
+          KITCHEN_LOCAL_YAML: kitchen.exec.yml
+          SEVEN_ZIP_RUN_LIST: remove
+          SEVEN_ZIP_VERIFY_PROFILE: remove
+        run: |
+          kitchen converge default-windows-latest
+          kitchen verify default-windows-latest --test-base-path=test/integration/remove
+      - name: Clean removal instance
+        if: always() && matrix.suite == 'remove'
+        env:
+          KITCHEN_LOCAL_YAML: kitchen.exec.yml
+        run: kitchen destroy default-windows-latest
