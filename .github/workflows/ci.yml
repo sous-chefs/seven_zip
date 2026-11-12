@@ -25,6 +25,7 @@ jobs:
     needs: "lint-unit"
 
     runs-on: windows-latest
+    timeout-minutes: 20
     strategy:
       matrix:
         os:
@@ -48,13 +49,10 @@ jobs:
         run: kitchen converge default-windows-latest
       - name: test-kitchen
         if: matrix.suite == 'default'
-        uses: actionshub/test-kitchen@3.0.0
         env:
           CHEF_LICENSE: accept-no-persist
           KITCHEN_LOCAL_YAML: kitchen.exec.yml
-        with:
-          suite: ${{ matrix.suite }}
-          os: ${{ matrix.os }}
+        run: kitchen test ${{ matrix.suite }}-${{ matrix.os }} --destroy=always
       - name: Remove twice and verify
         if: matrix.suite == 'remove'
         env:
