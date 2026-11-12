@@ -12,13 +12,12 @@ remote_file archive do
 end
 
 ['C:\\seven_zip_source', 'C:\\Program Files\\seven_zip_source'].each do |destination|
-  directory destination
-  file "#{destination}\\unrelated.txt" do
-    content 'Existing content must remain intact.'
-  end
   archive_file "extract into #{destination}" do
     path archive
     destination destination
-    overwrite :auto
+    overwrite false
+  end
+  file "#{destination}\\unrelated.txt" do
+    content 'Existing content must remain intact.'
   end
 end

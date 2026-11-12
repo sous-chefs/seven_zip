@@ -24,14 +24,20 @@ installer selection and real Windows evidence.
 
 The cookbook already has no public recipes or attributes. The full migration
 retains `seven_zip_tool` and removes `seven_zip_archive`. Extraction examples
-use native `remote_file` and `archive_file`, with default `overwrite :auto`.
+use native `remote_file` and `archive_file`, with native `overwrite false`.
 Two Windows convergences must prove idempotency; local ChefSpec does not.
 
 The obsolete wrapper's URI helper is removed with the wrapper; URL fetching is
 delegated to Chef's native `remote_file`.
 
 Chef's built-in `archive_file` provides idempotent `overwrite :auto` using
-archive entry timestamps, but has no removal action. A receipt alone does
+archive entry timestamps in principle, but Windows Cinc 19.4.46 acceptance
+on the 7-Zip 25.01 source archive fails its second extraction with
+`Archive::Error: Can't unlink already-existing object`. Do not claim that
+mode works on this archive. Acceptance exercises native `overwrite false`,
+which skips an existing destination, with a post-extraction unrelated file
+that must survive the second convergence. Native extraction has no removal
+action. A receipt alone does
 not prove extracted files remain intact. Do not add destructive destination
 ownership assumptions merely to satisfy an idempotency or cleanup test.
 
